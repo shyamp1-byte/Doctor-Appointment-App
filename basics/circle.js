@@ -11,5 +11,3 @@ let area=pi*radius*radius;
 // printing the result
 console.log("circumference is :"+circumference+" meters");
 console.log("area is :"+ area+" meters");
-
-
