@@ -17,9 +17,10 @@
 // 14) isIndian
 
 
+
 // Declaring Variables with some values
 let name = "Mehar Bandaru";
-let DOB = new Date('02-02-1995');
+let DOB = new Date('02-03-1991');
 const gender = "Male";
 let weight = 65;
 let sugarLevels = null;
@@ -38,6 +39,7 @@ const isIndian = true;
 
 // to print the occupied memory in bytes
 const bytes = new TextEncoder();
+
 
 console.log("name is :" + name + ' with Data Size in bytes '+bytes.encode(name).length+' Type in javascript as ' + typeof (name));
 console.log("DOB is :" + DOB + ' with Data Size in bytes '+bytes.encode(DOB).length+' Type in javascript as ' + typeof (DOB));

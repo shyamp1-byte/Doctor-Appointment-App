@@ -5,7 +5,6 @@
 
 const patientInformation = {
     name: 'Mehar Bandaru',
-    DOB: new Date(),
     DOB: new Date('02-02-1995'),
     gender: "Male",
     weight: 65,
@@ -19,7 +18,6 @@ const patientInformation = {
     phoneNumer: '+91-98978567844',
     zipCode: 500032,
     isIndian: true,
-
 }
 
 // Priting the Values along with the Data Size in bytes & Type
