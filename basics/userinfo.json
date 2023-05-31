@@ -1,0 +1,15 @@
+{
+    "name": {
+        "firstName": "mehar",
+        "lastName": "Chaitanya"
+    },
+    "age": 21,
+    "address": {
+        "streetNo": 1,
+        "city": "hyd",
+        "state": "telangana",
+        "country": "CHINA",
+        "zipcode": 500032
+    },
+    "agreed": true
+}
