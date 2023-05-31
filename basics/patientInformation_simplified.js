@@ -3,7 +3,7 @@
 
 // Declaring Object with some values
 
-const patientInformation = {
+const patientInformation = {   //patientInformation is object
     name: 'Mehar Bandaru',
     DOB: new Date('02-02-1995'),
     gender: "Male",
