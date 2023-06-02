@@ -1,13 +1,15 @@
-// Learn Javascript with deep basics
-// Cirlce program to find the circumference and area in meters
-const pi=3.14;
-const radius=43;
+function calculateCircleInfo(radius) {
+    const pi = 3.14;
+    let circumference=2*pi*radius;
+    let area=pi*radius*radius;
+    return {
+        "Circumference ": circumference, "Area ": area
+    }
+}
 
-// below formula's are used to find the circumference and area
-let circumference=2*pi*radius;
-let area=pi*radius*radius;
 
-
-// printing the result
-console.log("circumference is :"+circumference+" meters");
-console.log("area is :"+ area+" meters");
+console.log(calculateCircleInfo(50));
+console.log(calculateCircleInfo(40));
+console.log(calculateCircleInfo(30));
+console.log(calculateCircleInfo(20));
+console.log(calculateCircleInfo(10));
