@@ -24,6 +24,7 @@ const patientInformation = {   //patientInformation is object
 // to print the occupied memory in bytes
 const bytes = new TextEncoder();
 const keysList=Object.keys(patientInformation);
+console.log(keysList);
 
 keysList.map(x=>{
     console.log(x +" is : " + patientInformation[x] + ' with Data Size in bytes ' + bytes.encode(patientInformation[x]).length + ' Type in javascript as ' + typeof (patientInformation[x]));
