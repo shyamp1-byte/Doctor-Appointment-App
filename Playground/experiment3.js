@@ -4,12 +4,12 @@ function calculateAgeInHoursMinutesSeconds(birthDate) {
                  // 2023-2000
                  // 23 years
     console.log(diff);
-    const Years = Math.floor((diff / (1000 * 60 * 60))/(365*24));
+    const years = Math.floor((diff / (1000 * 60 * 60))/(365*24));
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
   
-    return { Years,hours, minutes, seconds };
+    return { years, hours, minutes, seconds };
   }
   
   // Example usage

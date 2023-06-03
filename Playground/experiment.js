@@ -5,13 +5,12 @@ function shutdownRiceCooker() {
   
   // Set the running time in milliseconds (e.g., 30 minutes)
 
-<<<<<<< Updated upstream
   
   // Schedule the shutdown after the running time
   console.log("Cooker Started");
   setTimeout(shutdownRiceCooker, 5000);
   
-=======
+
 let time =1;
 for (time;time<=24;time++){
     if(time<=12){
@@ -25,4 +24,3 @@ for (time;time<=24;time++){
     }
 }
 
->>>>>>> Stashed changes
