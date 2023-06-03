@@ -1,14 +1,12 @@
-// print 1 to 24 numbers
-// based on hour , we need to wish the user
+function shutdownRiceCooker() {
+    console.log("Rice cooker is shutting down...");
+    // Additional shutdown logic can be added here
+  }
+  
+  // Set the running time in milliseconds (e.g., 30 minutes)
 
-let time =1;
-for (time;time<=24;time++){
-    if(time<12){
-        console.log(time,"Good Morning...!");
-    }else if(time<16){
-        console.log(time,"Good Afternoon");
-    }
-    else{
-        console.log(time,"Good Evening/Good Night");
-    }
-}
+  
+  // Schedule the shutdown after the running time
+  console.log("Cooker Started");
+  setTimeout(shutdownRiceCooker, 5000);
+  
