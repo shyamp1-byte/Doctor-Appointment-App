@@ -1,4 +1,4 @@
-var dob = prompt("Please enter your date of birth (MM/DD/YYYY):");
+var dob = '02/01/2000';
 
 // Calculate the age based on the current date
 var today = new Date();
@@ -12,4 +12,4 @@ if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()))
 }
 
 // Display the calculated age
-alert("Your age is: " + age);
+console.log("Your age is: " + age);
