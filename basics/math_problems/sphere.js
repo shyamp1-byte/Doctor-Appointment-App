@@ -1,9 +1,10 @@
 //v = 4/3pi(r**3)
 
-let v = null;
-pi = 3.14
-r = 1;
-v = 4/3*(pi)*(r**3)
-for(r=1;r<10;r++) {
-    console.log(v)
+let volume = null;
+const pi = 3.14
+let radius = 1;
+
+for(radius=1;radius<=10;radius++) {
+    volume = 4/3*(pi)*(radius**3)
+    console.log("The Radius is " +radius, "and The Volume is " +volume)
 }
