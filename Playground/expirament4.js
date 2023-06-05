@@ -1,10 +1,14 @@
+<<<<<<< Updated upstream
 var dob = '02/01/2000';
+=======
+const dob = "03/31/2003";
+>>>>>>> Stashed changes
 
 // Calculate the age based on the current date
-var today = new Date();
-var birthDate = new Date(dob);
-var age = today.getFullYear() - birthDate.getFullYear();
-var monthDiff = today.getMonth() - birthDate.getMonth();
+const today = new Date();
+const birthDate = new Date(dob);
+const age = today.getFullYear() - birthDate.getFullYear();
+const monthDiff = today.getMonth() - birthDate.getMonth();
 
 // Check if the user hasn't had their birthday this year yet
 if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
