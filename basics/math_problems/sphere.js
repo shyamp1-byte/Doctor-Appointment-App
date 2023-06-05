@@ -1,9 +1,14 @@
 //v = 4/3pi(r**3)
 
-let v = null;
-pi = 3.14
-r = 1;
-v = 4/3*(pi)*(r**3)
-for(r=1;r<10;r++) {
-    console.log(v)
+// funciton will take "radius" as the input [and] prints "volume" as the output
+function findSphereRadius(radius){
+    const pi = 3.14; 
+    let volume = 4/3*(pi)*(radius**3);
+    return volume;
 }
+
+// for loop || inside we are calling the findSphereRadius function
+for(let radius=1;radius<=100;radius++) {  
+    console.log("The Radius is "+ radius, " Volume is : "+findSphereRadius(radius));
+}
+
