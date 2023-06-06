@@ -1,8 +1,8 @@
-<<<<<<< Updated upstream
+
 var dob = '02/01/2000';
-=======
+
 const dob = "03/31/2003";
->>>>>>> Stashed changes
+
 
 // Calculate the age based on the current date
 const today = new Date();

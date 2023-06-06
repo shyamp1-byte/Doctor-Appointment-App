@@ -21,9 +21,9 @@ for (let x = 1; x <= 10; x++) { // starting point
 } // Ending point
 
 
-// loop with 1)for & 2)Map fuction
+// loop with 1) For & 2) Map fuction
 
-let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "satruday"];
+let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 // Type -1  Example-2
 for (let y = 0; y < weekdays.length; y++) {
     console.log(y + 1, weekdays[y]);
