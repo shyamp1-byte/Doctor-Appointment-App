@@ -1,6 +1,8 @@
+print("------------------------------")
+print("ARRAY")
 userInformation = ['mehar chaitanya',29,'hyderabad',65.7]
 print(userInformation)
-
+print("------------------------------")
 
 print("------------------------------")
 print("LENGTH : Printing length of the array: ")
