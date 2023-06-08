@@ -1,1 +1,1 @@
-console.log("for advanced Level");
+console.log("advanced");
