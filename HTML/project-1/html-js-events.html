@@ -9,14 +9,32 @@
 <body>
 <script>
     function clickbutton(){
-        let name=document.getElementById('name').value;
-    console.log("Hello "+name);
+        let name=document.getElementById('nameid').value;
+        let age=document.getElementById('ageid').value;
+        let resultMessage="Hello: "+name+" age: "+age;
+        console.log(resultMessage);
+        alert(resultMessage);
     }
     
 </script>
+<style>
+    .button {
+  background-color: #306ab5; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
 
     <h1>Javascript Events Click Test</h1>
-    <input type="text" id="name" />
-    <button onload="clickbutton()">Test Button with Different Events</button>
+    <label>Name:</label>
+    <input type="text" id="nameid" />
+    <label>Age:</label>
+    <input type="number" id="ageid" />
+    <button class="button" onclick="clickbutton()">Test Button with Different Events</button>
 </body>
 </html>
