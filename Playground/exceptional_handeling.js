@@ -20,8 +20,4 @@ function withdrawBankBalaance(availableBalance,needtoWithdraw){
     
 }
 
-console.log(withdrawBankBalaance(4,5));
-// Test -1  4,2    ::: Result 2
-// Test -2  "mehar", 2 ::: Result NaN
-// Test -3  0,2       ::: Result 0
-// Test -4  2,0       ::: Infinity
+console.log(withdrawBankBalaance(0,2));
