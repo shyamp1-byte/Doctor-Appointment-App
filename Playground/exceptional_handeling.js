@@ -1,0 +1,26 @@
+function withdrawBankBalaance(availableBalance,needtoWithdraw){
+    try {
+        let result=availableBalance-needtoWithdraw;
+       
+        if(typeof(availableBalance)=='number'){
+            return result;
+        }
+        else{
+            throw new TypeError("Type error occurred");
+        }
+        
+    } catch (error) {
+        return "Unable to withdraw your cash from this ATM at this movement. Please check your balance";
+    }
+    finally{  // Optional (no need to define)
+        // Always run this statement
+        console.log("Thank you for Visiting ICICI ATM - Have a good day...! ");
+    }
+    
+}
+
+console.log(withdrawBankBalaance(10,5));
+// Test -1  4,2    ::: Result 2
+// Test -2  "mehar", 2 ::: Result NaN
+// Test -3  0,2       ::: Result 0
+// Test -4  2,0       ::: Infinity
