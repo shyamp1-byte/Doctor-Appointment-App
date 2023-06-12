@@ -1,5 +1,7 @@
 // improve this below with multiple catch statements
 
+// https://www.scaler.com/topics/types-of-errors-in-javascript/
+
 function withdrawBankBalaance(availableBalance,needtoWithdraw){
     try {
         let result=null;
