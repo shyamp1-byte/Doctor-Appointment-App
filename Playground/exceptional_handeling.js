@@ -1,8 +1,9 @@
 function withdrawBankBalaance(availableBalance,needtoWithdraw){
     try {
-        let result=availableBalance-needtoWithdraw;
+        let result=null;
        
-        if(typeof(availableBalance)=='number'){
+        if(availableBalance>needtoWithdraw){
+            result=availableBalance-needtoWithdraw;
             return result;
         }
         else{
@@ -19,7 +20,7 @@ function withdrawBankBalaance(availableBalance,needtoWithdraw){
     
 }
 
-console.log(withdrawBankBalaance(10,5));
+console.log(withdrawBankBalaance(4,5));
 // Test -1  4,2    ::: Result 2
 // Test -2  "mehar", 2 ::: Result NaN
 // Test -3  0,2       ::: Result 0
