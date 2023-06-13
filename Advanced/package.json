@@ -1,0 +1,20 @@
+{
+  "name": "cars-rest-api",
+  "version": "1.0.0",
+  "description": "cars-rest-api : to do CRUD(Create, Read, Update, Delete)  operations on the CAR with description.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "CAR_API",
+    "with",
+    "CRUD_OPERATIONS"
+  ],
+  "author": "Shyam Pedibhotla",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
