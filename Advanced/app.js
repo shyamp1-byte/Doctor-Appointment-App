@@ -1,4 +1,6 @@
 const chalk = require('chalk');
+const {add,sub,mul,div}=require('./utils/arthematic_operations');
+const geometry=require("./geometry_operations");
 
 function withdrawBankBalaance(availableBalance,needtoWithdraw){
     try {
@@ -25,3 +27,11 @@ function withdrawBankBalaance(availableBalance,needtoWithdraw){
 }
 
 withdrawBankBalaance(4,7);
+
+console.log(chalk.bgBlue(add(5,6)));
+console.log(chalk.bgBlue(sub(5,6)));
+console.log(chalk.bgRedBright(mul(5,6)));
+console.log(chalk.bgGreen((div(5,6))));
+
+console.log(geometry.calculateCircleInfo(5));
+console.log(geometry.calculateSqareInfo(64));
