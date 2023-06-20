@@ -7,6 +7,13 @@ app.get('/', (req, res) => {
 })
 
 
+app.post('/test', function (req, res) {
+  const data = req.body;
+  console.log(data);
+
+  res.send("SUCCESS");
+});
+
 app.get('*', (req, res) => {
   res.send('404 - No data found for your request');
 })
