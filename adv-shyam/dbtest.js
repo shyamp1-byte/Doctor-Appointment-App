@@ -51,6 +51,14 @@ patient_information
 
 
 
+// async function findPatient(filterdata) {                         //FINDING DATA
+//     const filter = filterdata;
+//     let doc = await Patient.findOne({ name: 'Meher' });
+//    console.log(doc);
+// }
+
+
+
 
 //SUPPOSED TO KEEP ONE OF THE FUNCTIONS COMMENTED AT A TIME
 //EX. DELETE RECORD COMMENTED WHILE CREATING OBJECT UNCOMMENTED
