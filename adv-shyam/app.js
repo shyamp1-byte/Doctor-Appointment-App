@@ -39,6 +39,7 @@ app.post('/test', function (req, res) {
 });
 
 app.use('/users', require('./Routers/userRouter'));
+app.use('/cars', require('./Routers/carRouter'));
 
 
 
