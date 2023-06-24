@@ -41,8 +41,28 @@ const createNewcar = async (req, res) => {
     }
   };
 
+  const removeCarById = async (req, res) => {
+    console.log("removeCarById method triggred")
+    const owner = req.params.owner;
+    console.log("Owner is ", owner);
+  
+    try {
+      const cars = await carModel.find({ "owner": owner});
+      console.log("Car Data: ", cars);
+  
+      if (!cars) {
+        return res.status(404).send("No cars found with this owner.");
+      }
+  
+      res.send(cars);
+    } catch (e) {
+      res.status(500).send("Internal server error.");
+    }
+  };
+
   module.exports = {
     createNewcar, 
     getAllCars,
-    getCarsByCC
+    getCarsByCC,
+    removeCarById
   };

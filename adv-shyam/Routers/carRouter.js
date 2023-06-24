@@ -9,6 +9,11 @@ router.route('/')
 router.route('/:cc')
 .get(carController.getCarsByCC);
 
+router.route('/:owner')
+.delete(carController.removeCarById);
+
+
+
 
 
 module.exports = router;
