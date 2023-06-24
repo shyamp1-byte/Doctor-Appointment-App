@@ -1,7 +1,7 @@
 const carModel = require("../Model/carModel");
 const bcrypt = require('bcrypt');
 
-const createNewcar = ('/cars', async (req, res) => {
+const createNewcar = async (req, res) => {
     const car = new carModel(req.body);
   
     try {
@@ -10,9 +10,9 @@ const createNewcar = ('/cars', async (req, res) => {
     } catch (e) {
       res.status(400).send(e);
     }
-  });
+  };
 
-  const getAllCars = ('/cars', async (req, res) => {
+  const getAllCars = async (req, res) => {
     console.log("Get all cars method triggred")
     try {
       let allcars = await carModel.find({});
@@ -20,9 +20,9 @@ const createNewcar = ('/cars', async (req, res) => {
     } catch (e) {
       res.status(400).send(e);
     }
-  });
+  };
 
-  const getCarsByCC = ('/cars/:cc', async (req, res) => {
+  const getCarsByCC = async (req, res) => {
     console.log("getCarsByCC method triggred")
     const cc = req.params.cc;
     console.log("CC is ", cc);
@@ -39,7 +39,7 @@ const createNewcar = ('/cars', async (req, res) => {
     } catch (e) {
       res.status(500).send("Internal server error.");
     }
-  });
+  };
 
   module.exports = {
     createNewcar, 
