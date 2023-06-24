@@ -47,7 +47,7 @@ const createNewcar = async (req, res) => {
     console.log("Owner is ", owner);
   
     try {
-      const cars = await carModel.find({ "owner": owner});
+      const cars = await carModel.deleteMany({ "owner": owner});
       console.log("Car Data: ", cars);
   
       if (!cars) {
