@@ -45,6 +45,8 @@ const getUsersByEmail = async (req, res) => {
   }
 };
 
+
+
 module.exports = {
   createNewUser,
   getAllUsers,
