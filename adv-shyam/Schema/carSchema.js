@@ -35,6 +35,16 @@ const carSchema = new Schema({
     required: true,
     trim: true,
   },
+  isitReadytoResale: {
+    type: Boolean,
+    required: true,
+    trim: true,
+  },
+  sellingPrice: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
   }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
 
  
