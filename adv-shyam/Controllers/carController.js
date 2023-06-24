@@ -6,7 +6,7 @@ const createNewcar = async (req, res) => {
   
     try {
       await car.save();
-      res.status(201).send({"message":"You have registred new car successfully"});
+      res.status(201).send({"message":"You have registered new car successfully"});
     } catch (e) {
       res.status(400).send(e);
     }
