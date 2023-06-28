@@ -28,7 +28,7 @@ db.once('open', () => {
 
 
 app.get('/', (req, res) => {
-  res.send('This is Shyam!')
+  res.send('This is Shyam! EXPRESS REST API 3000')
 })
 
 app.post('/test', function (req, res) {

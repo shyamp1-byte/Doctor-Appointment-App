@@ -20,7 +20,7 @@ const createNewUser = ('/users', async (req, res) => {
 const getAllUsers = ('/users', async (req, res) => {
   try {
     let allusers = await userModel.find({});
-    res.status(201).send(allusers);
+    res.status(200).send(allusers);
   } catch (e) {
     res.status(400).send(e);
   }
