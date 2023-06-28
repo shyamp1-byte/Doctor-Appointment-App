@@ -36,3 +36,5 @@ console.log("PUSH : length of fruits array: ")
 fruits.push("Grapes"); // PUSH means it will add the element in the array
 console.log(fruits);
 console.log("-----------------------------");
+
+

@@ -6,7 +6,7 @@ const createNewcar = async (req, res) => {
   
     try {
       await car.save();
-      res.status(201).send({"message":"You have registred new car successfully"});
+      res.status(201).send({"message":"You have registered new car successfully"});
     } catch (e) {
       res.status(400).send(e);
     }
@@ -41,8 +41,28 @@ const createNewcar = async (req, res) => {
     }
   };
 
+  const removeCarById = async (req, res) => {
+    console.log("removeCarById method triggred")
+    const owner = req.params.owner;
+    console.log("Owner is ", owner);
+  
+    try {
+      const cars = await carModel.deleteMany({ "owner": owner});
+      console.log("Car Data: ", cars);
+  
+      if (!cars) {
+        return res.status(404).send("No cars found with this owner.");
+      }
+  
+      res.send(cars);
+    } catch (e) {
+      res.status(500).send("Internal server error.");
+    }
+  };
+
   module.exports = {
     createNewcar, 
     getAllCars,
-    getCarsByCC
+    getCarsByCC,
+    removeCarById
   };

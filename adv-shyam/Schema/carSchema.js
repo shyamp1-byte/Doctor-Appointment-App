@@ -19,11 +19,14 @@ const carSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    enum: ['Audi', 'Honda', 'Toyota', 'Mercedes'],
   },
   cc: {
     type: Number,
     required: true,
     trim: true,
+    min: 1000,
+    max: 15000
   },
   color: {
     type: String,
@@ -34,6 +37,8 @@ const carSchema = new Schema({
     type: Number,
     required: true,
     trim: true,
+    min: 1990,
+    max: 2023
   },
   isitReadytoResale: {
     type: Boolean,
@@ -44,6 +49,8 @@ const carSchema = new Schema({
     type: Number,
     required: true,
     trim: true,
+    min: 10000,
+    max: 1000000
   },
   }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
 
