@@ -1,20 +1,17 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const printNumbers=require('./numbers');
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+
 app.get('/numbers', (req, res) => {
-    for (let x=0;x<10;x++) {
-        if (x % 2 ==0) {
-            console.log(x+ " is even")
-        } else {
-            console.log(x+ " is odd")
-        }
-    }
-  res.send('Numbers will be printed here soon')
+  let finalresult=printNumbers(); // here i have called the function
+  res.send(finalresult)
   })
   
 app.listen(port, () => {
