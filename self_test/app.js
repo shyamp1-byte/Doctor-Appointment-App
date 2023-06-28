@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const printNumbers=require('./numbers');
+const fetchWeatherdetails=require('./weatherDetails')
 
+https://api.openweathermap.org/data/2.5/weather?lat=40.741895&lon=-73.989308&appid=b133bf7fe17429e815398f70dd780ce8
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -14,6 +16,13 @@ app.get('/numbers', (req, res) => {
   res.send(finalresult)
   })
   
+app.get('/weatherdetails', async (req, res) => {
+    let weatherResult = await fetchWeatherdetails();
+    console.log("Test Shyam: ")
+    console.log(fetchWeatherdetails)
+    res.send(weatherResult)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
