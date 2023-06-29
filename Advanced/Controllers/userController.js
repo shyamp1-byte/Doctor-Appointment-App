@@ -1,15 +1,47 @@
 const userModel = require("../Model/userModel");
 const bcrypt = require('bcrypt');
+const {generateNewUserID}=require('./../Utils/utils');
+
+
 
 const createNewUser = async (req, res) => {
+
+// CHECK EMAIL IS EXIST OR NOT (START)
+  const registriedEmail = await userModel.find().count({email: req.body.email});
+  if (registriedEmail>0) {
+    return res.status(403).send('This Email-ID is already registred');
+  }
+  // CHECK EMAIL IS EXIST OR NOT (END)
+
+
+  // CHECK PhoneNO IS EXIST OR NOT (START)
+  const registredPhoneNumber = await userModel.find().count({phoneNumber: req.body.phoneNumber});
+  if (registredPhoneNumber>0) {
+    return res.status(403).send('This Phone Number is already registred');
+  }
+   // CHECK PhoneNO IS EXIST OR NOT (END)
+
+
+  // Auto Incriment USER ID  START
+  const users = await userModel.find().sort({UID: -1}).limit(1); // to get the lastest UID from MONGO
+  const UID = users[0]?.UID || '2023000001';
+  req.body.UID = generateNewUserID(UID);
+  // Auto Incriment USER ID  END
+
+   // HASH PASSWORD (START)
   const salt = await bcrypt.genSaltSync(10);  //generating random salt
   const hashedPassword = await bcrypt.hashSync(req.body.password, salt); //mixing password entered by user with salt
   req.body.password = hashedPassword; //updated password with hashed generated password 
+   // HASH PASSWORD (END)
+
+    // PREPARING MODEL (START)
   const user = new userModel(req.body);
+    // PREPARING MODEL (END)
 
   try {
     await user.save();
-    res.status(201).send({ "message": "You have registred successfully" });
+    const result = {user: user.email, phoneNumber: user.phoneNumber, userID: user.UID};
+    res.status(201).send(result);
   } catch (e) {
     res.status(400).send(e);
   }
