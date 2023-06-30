@@ -96,6 +96,11 @@ const userSchema = new Schema({
       required: true,
       trim: true,
     },
+    userRole:{
+      type:Array,
+      required:true,
+      minlength: 4,
+    }
   }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
 
  
