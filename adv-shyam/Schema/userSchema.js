@@ -47,6 +47,9 @@ const userSchema = new Schema({
       type: String,
       required: true,
       trim: true,
+      min: 9,
+      max: 11,
+      
     },
     address: {
       doorNo: {
@@ -96,7 +99,13 @@ const userSchema = new Schema({
       required: true,
       trim: true,
     },
+    userRole:{
+      type:Array,
+      required:true,
+      minlength: 4,
+    }
   }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
 
  
   module.exports = userSchema;
+
