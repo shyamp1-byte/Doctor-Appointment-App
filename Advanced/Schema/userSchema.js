@@ -47,6 +47,9 @@ const userSchema = new Schema({
       type: String,
       required: true,
       trim: true,
+      min: 9,
+      max: 11,
+      
     },
     address: {
       doorNo: {
@@ -105,3 +108,4 @@ const userSchema = new Schema({
 
  
   module.exports = userSchema;
+

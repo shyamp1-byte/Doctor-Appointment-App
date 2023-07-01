@@ -1,22 +1,22 @@
 const userModel = require("../Model/userModel");
 const bcrypt = require('bcrypt');
-const {generateNewUserID}=require('./../Utils/utils');
+const {generateNewUserID}=require('../Utils/utils');
 
 
 
 const createNewUser = async (req, res) => {
 
 // CHECK EMAIL IS EXIST OR NOT (START)
-  const registriedEmail = await userModel.find().count({email: req.body.email});
-  if (registriedEmail>0) {
+  const registeredEmail = await userModel.find().count({email: req.body.email});
+  if (registeredEmail>0) {
     return res.status(403).send('This Email-ID is already registred');
   }
   // CHECK EMAIL IS EXIST OR NOT (END)
 
 
   // CHECK PhoneNO IS EXIST OR NOT (START)
-  const registredPhoneNumber = await userModel.find().count({phoneNumber: req.body.phoneNumber});
-  if (registredPhoneNumber>0) {
+  const registeredPhoneNumber = await userModel.find().count({phoneNumber: req.body.phoneNumber});
+  if (registeredPhoneNumber>0) {
     return res.status(403).send('This Phone Number is already registred');
   }
    // CHECK PhoneNO IS EXIST OR NOT (END)
@@ -24,7 +24,7 @@ const createNewUser = async (req, res) => {
 
   // Auto Incriment USER ID  START
   const users = await userModel.find().sort({UID: -1}).limit(1); // to get the lastest UID from MONGO
-  const UID = users[0]?.UID || '2023000001';
+  const UID = users[0]?.UID || '20230001';
   req.body.UID = generateNewUserID(UID);
   // Auto Incriment USER ID  END
 
@@ -40,7 +40,7 @@ const createNewUser = async (req, res) => {
 
   try {
     await user.save();
-    const result = {user: user.email, phoneNumber: user.phoneNumber, userID: user.UID};
+    const result = {email: user.email, phoneNumber: user.phoneNumber, ID: user.UID};
     res.status(201).send(result);
   } catch (e) {
     res.status(400).send(e);

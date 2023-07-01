@@ -28,7 +28,7 @@ db.once('open', () => {
 
 
 app.get('/', (req, res) => {
-  res.send('This is Shyam! EXPRESS REST API 3000')
+  res.send('Doctor Appointment REST API running @ 3000')
 })
 
 app.post('/test', function (req, res) {
@@ -39,10 +39,11 @@ app.post('/test', function (req, res) {
 });
 
 app.use('/users', require('./Routers/userRouter'));
-app.use('/cars', require('./Routers/carRouter'));
+app.use('/doctors', require('./Routers/docRouter'));
+app.use('/login', require('./Routers/authRoute'));
 
 
 
 app.listen(port, () => {
-  console.log(`Cars application: ${port}`)
+  console.log(`Doctors application: ${port}`)
 })
