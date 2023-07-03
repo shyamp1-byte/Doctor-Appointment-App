@@ -40,6 +40,7 @@ app.post('/test', function (req, res) {
 
 app.use('/users', require('./Routers/userRouter'));
 app.use('/doctors', require('./Routers/docRouter'));
+app.use('/login', require('./Routers/authRouter'));
 
 
 
