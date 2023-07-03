@@ -1,9 +1,10 @@
 const express = require('express');
 const router = new express.Router();
 const appointmentController = require("./../Controllers/appointmentController")
+const auth=require("./../Middleware/auth");
 
 router.route('/')
-.post(appointmentController.createNewAppointment)
+.post(auth.verifyToken, appointmentController.createNewAppointment)
 .get(appointmentController.getAllAppointments);
 
 module.exports = router;
