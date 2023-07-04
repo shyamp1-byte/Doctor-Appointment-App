@@ -1,0 +1,57 @@
+{
+  "html": {
+    "head": [
+      {
+        "title": "Patient Registration",
+        "style": "table {\n                border-collapse: collapse;\n                align-content: center;\n                text-align: center;\n            }\n            th, td {\n                padding: 8px;\n                border: 1px solid black;\n            }"
+      },
+      {
+        "meta": {
+          "meta": {
+            "meta": {
+              "title": "Document"
+            },
+            "body": {
+              "script": "function clickbutton(){\n        let name=document.getElementById('nameid').value;\n        let age=document.getElementById('ageid').value;\n        let city=document.getElementById('cityid').value;\n        let illness=document.getElementById('illid').value;\n        let resultMessage=\"Hello \"+name+\". Here are the given dates you can book with \"+illness+\":\";\n        // console.log(resultMessage);\n        alert(resultMessage);\n        let resultMessage2=\"Please do not book for the dates already booked: \"+date;\n    }",
+              "style": ".button {\n  background-color: #ff00f2; \n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none; \n  display: inline-block; \n  font-size: 16px;\n}",
+              "h1": "Patient Registration",
+              "label": [
+                "Name:",
+                "Age:",
+                "City:",
+                "Previous Illnesses:"
+              ],
+              "input": [
+                "",
+                "",
+                "",
+                ""
+              ],
+              "button": "Register for appointment"
+            }
+          }
+        }
+      }
+    ],
+    "body": {
+      "h1": "Registered Patients:",
+      "div": {
+        "table": {
+          "thead": {
+            "tr": {
+              "th": [
+                "Name",
+                "Age",
+                "Country",
+                "Illness",
+                "Appointment Date"
+              ]
+            }
+          },
+          "tbody": ""
+        }
+      },
+      "script": ""
+    }
+  }
+}

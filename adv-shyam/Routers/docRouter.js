@@ -7,4 +7,7 @@ router.route('/')
 .post(docController.createNewDoctor)
 .get(docController.getAllDoctors);
 
+router.route('/listofdoctors')
+.get(docController.getListofDctors);
+
 module.exports = router;
