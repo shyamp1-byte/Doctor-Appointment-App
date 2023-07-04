@@ -107,6 +107,11 @@ const docSchema = new Schema({
         type: String,
         required: true,
         trim: true
+      },
+      fee:{
+        type:Number,
+        required:true,
+        trim: true
       }
     }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
     

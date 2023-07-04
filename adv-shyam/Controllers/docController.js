@@ -35,10 +35,13 @@ const createNewDoctor = async (req, res) => {
 
 
 const getAllDoctors = async (req, res) => {
+  console.log("Get all doctors");
+
     try {
-      let alldoctos = await docModel.find({});
+      let alldoctors = await docModel.find({});
       res.status(200).send(alldoctors);
     } catch (e) {
+      console.log("catch Test",e);
       res.status(400).send(e);
     }
   };
