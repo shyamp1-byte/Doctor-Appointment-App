@@ -77,11 +77,15 @@ const cancelAppointment = async (req, res) => {
   if(!appointmentInfo[0]?.appointmentId){
     return res.status(403).send('Invalid Appointment ID');
   }
-  console.log(patientID)
-  console.log("appointmentInfo");
-  console.log(appointmentInfo);
-  res.status(200).send([])
+  
+  let update = {
+    "cancellationReason": req.body.cancellationReason,
+    "isCancelled": "Yes"
+  }
+  let cancelAppointmentResult = await appointmentModel.findOneAndUpdate({"appointmentId":req.body.appointmentId}, update);
+  res.status(200).send(cancelAppointmentResult)
 }
+
 
 module.exports = {
   createNewAppointment,
