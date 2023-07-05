@@ -8,6 +8,6 @@ router.route('/')
 .get(appointmentController.getAllAppointments);
 
 router.route('/cancelappointment')
-.post(auth.verifyToken,appointmentController.cancelAppointment)
+.put(auth.verifyToken,appointmentController.cancelAppointment)
 
 module.exports = router;

@@ -12,15 +12,16 @@ const patientID=await decodeToken(req);
 const patientInfo=await userModel.find({"UID":patientID});
 
 req.body.patientName=patientInfo[0].fullName.firstName;
+req.body.patientId=patientID;
 // Check patient ID is valid or not ::: END
 
 
-
 // Check doctor ID is valid or not ::: START
-const doctorID=await docModel.find({"doctorId":req.body.doctorID});
-if(doctorID[0].DID!==req.body.doctorID){
+const doctorID=await docModel.find({"doctorId":req.body.doctorId});
+if(doctorID[0].DID!==req.body.doctorId){
   return res.status(403).send('This doctor ID is not registred / Invalid');
 }
+req.body.doctorId=doctorID[0].specialization;
 // Check doctor ID is valid or not ::: END
 
 // Updating the request body with nessicary data to store ::: START
@@ -73,8 +74,12 @@ const cancelAppointment = async (req, res) => {
 
   const patientID=await decodeToken(req);
   const appointmentInfo=await appointmentModel.find({"appointmentId":req.body.appointmentId});
+  if(!appointmentInfo[0]?.appointmentId){
+    return res.status(403).send('Invalid Appointment ID');
+  }
   console.log(patientID)
-  console.log(appointmentInfo)
+  console.log("appointmentInfo");
+  console.log(appointmentInfo);
   res.status(200).send([])
 }
 
