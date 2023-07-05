@@ -18,8 +18,7 @@ req.body.patientName=patientInfo[0].fullName.firstName;
 
 // Check doctor ID is valid or not ::: START
 const doctorID=await docModel.find({"doctorId":req.body.doctorId});
-
-if(doctorID[0].DID!==req.body.doctorId){
+if(doctorID[0].DID!==req.body.doctorID){
   return res.status(403).send('This doctor ID is not registred / Invalid');
 }
 // Check doctor ID is valid or not ::: END
