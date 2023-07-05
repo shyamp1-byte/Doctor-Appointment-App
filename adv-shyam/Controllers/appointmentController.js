@@ -53,7 +53,7 @@ req.body.appointmentStatus="Booked";
 
 
   try {
-    // await appointment.save();  // Heart ❤️ of this function - Saving into the Database
+    await appointment.save();  // Heart ❤️ of this function - Saving into the Database
     res.status(201).send(appointment);
   } catch (e) {
     res.status(400).send(e);
@@ -70,7 +70,17 @@ const getAllAppointments = async (req, res) => {
   }
 };
 
+const cancelAppointment = async (req, res) => {
+
+  const patientID=await decodeToken(req);
+  const appointmentInfo=await appointmentModel.find({"appointmentId":req.body.appointmentId});
+  console.log(patientID)
+  console.log(appointmentInfo)
+  res.status(200).send([])
+}
+
 module.exports = {
   createNewAppointment,
   getAllAppointments,
+  cancelAppointment,
 };
