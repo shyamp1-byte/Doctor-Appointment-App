@@ -52,6 +52,10 @@ req.body.appointmentStatus="Booked";
       return res.status(403).send('This Appointment ID is already registered');
   }
 
+  const timeOfAppointment = await appointmentModel.find().count({appointmentTime: req.body.appointmentTime});
+  if (timeOfAppointment>0) {
+      return res.status(403).send('This time slot has been taken up. Please book with a different time');
+  }
 
   try {
     await appointment.save();  // Heart ❤️ of this function - Saving into the Database
@@ -63,13 +67,17 @@ req.body.appointmentStatus="Booked";
 
 // Get all appointments
 const getAllAppointments = async (req, res) => {
+const patientID=await decodeToken(req);
+// Check patient ID is valid or not ::: START
+const patientInfo=await userModel.find({"UID":patientID});
   try {
-    let allappointments = await appointmentModel.find({});
+    let allappointments = await appointmentModel.find({patientId:patientInfo[0].UID});
     res.status(200).send(allappointments);
   } catch (e) {
     res.status(400).send(e);
   }
 };
+
 
 const cancelAppointment = async (req, res) => {
 

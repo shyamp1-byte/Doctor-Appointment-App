@@ -55,7 +55,7 @@ const appointmentSchema = new Schema({
     max: "2023-07-03",
   },
   timeOfAppointment: {
-    type: String,
+    type: Date,
     required: true,
     trim: true,
   },
@@ -71,6 +71,11 @@ const appointmentSchema = new Schema({
   },
   tax: {
     type: Number,
+    required: true,
+    trim: true,
+  },
+  appointmentReason: {
+    type: String,
     required: true,
     trim: true,
   },

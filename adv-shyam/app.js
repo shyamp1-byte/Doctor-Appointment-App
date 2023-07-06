@@ -39,6 +39,7 @@ app.use("/users", require("./Routers/userRouter"));
 app.use("/doctors", require("./Routers/docRouter"));
 app.use("/login", require("./Routers/authRouter"));
 app.use("/appointments", require("./Routers/appointmentRouter"));
+app.use("/getallinfo", require("./Routers/getAllInfoRouter"))
 
 app.listen(port, () => {
   console.log(`Doctors application: ${port}`);
