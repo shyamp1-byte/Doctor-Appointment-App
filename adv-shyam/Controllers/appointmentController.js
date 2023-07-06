@@ -17,19 +17,20 @@ req.body.patientId=patientID;
 
 
 // Check doctor ID is valid or not ::: START
-const doctorID=await docModel.find({"doctorId":req.body.doctorId});
-if(doctorID[0].DID!==req.body.doctorId){
+const doctorInfo=await docModel.find({"DID":req.body.doctorId});
+
+if(doctorInfo[0].DID!==req.body.doctorId){
   return res.status(403).send('This doctor ID is not registred / Invalid');
 }
-req.body.doctorId=doctorID[0].specialization;
+req.body.doctorId=doctorInfo[0].specialization;
 // Check doctor ID is valid or not ::: END
 
 // Updating the request body with nessicary data to store ::: START
-req.body.doctorSpecialization=doctorID[0].specialization;
-req.body.doctorName=doctorID[0].fullName.firstName;
+req.body.doctorSpecialization=doctorInfo[0].specialization;
+req.body.doctorName=doctorInfo[0].fullName.firstName;
 req.body.isCancelled= false;
 req.body.cancellationReason="NA";
-req.body.fee=doctorID[0].fee;
+req.body.fee=doctorInfo[0].fee;
 req.body.tax=25;
 req.body.appointmentStatus="Booked";
 // Updating the request body with nessicary data to store ::: END
