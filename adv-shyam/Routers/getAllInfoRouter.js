@@ -4,6 +4,6 @@ const getAllInfoController = require("./../Controllers/getAllInfoController")
 const auth=require("../Middleware/auth");
 
 router.route('/')
-.get(getAllInfoController.getAllInfo);
+.get(auth.verifyToken, getAllInfoController.getAllInfo);
 
 module.exports = router;

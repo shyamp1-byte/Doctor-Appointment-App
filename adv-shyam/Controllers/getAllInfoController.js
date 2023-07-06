@@ -1,24 +1,22 @@
 const appointmentModel = require("../Model/appointmentModel");
 const userModel = require("../Model/userModel");
 const docModel = require("../Model/docModel");
+const auth=require("../Middleware/auth");
 
 const getAllInfo = async (req, res) => {
-  console.log("Get all Information");
-
   try {
-    //const patientID = await decodeToken(req);
-    //const patientInfo = await userModel.find({ UID: patientID });
-    let alldoctors = await docModel.find({});
-    let allusers = await userModel.find({});
-    let allappointments = await appointmentModel.find({
-        patientId: patientInfo[0].UID,
-      });
+    const allusersCount = await userModel.count({});
+    let allDoctorsCount = await docModel.count({});
+    let allAppointmentsCount = await appointmentModel.count({});
     let finalResult = {
-        alldoctors, allusers, allappointments 
+      "allUsersCount":allusersCount,
+      "allDoctorsCount":allDoctorsCount,
+      "allAppointmentsCount":allAppointmentsCount
     }
+
     res.status(200).send(finalResult);
+    
   } catch (e) {
-    console.log("catch Test", e);
     res.status(400).send(e);
   }
 };
