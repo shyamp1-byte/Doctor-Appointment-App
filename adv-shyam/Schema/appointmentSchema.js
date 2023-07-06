@@ -75,7 +75,7 @@ const appointmentSchema = new Schema({
     trim: true,
   },
   isCancelled: {
-    type: String,
+    type: Boolean,
     required: true,
     trim: true,
   },

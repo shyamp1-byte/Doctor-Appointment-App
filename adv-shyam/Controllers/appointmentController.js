@@ -27,7 +27,7 @@ req.body.doctorId=doctorID[0].specialization;
 // Updating the request body with nessicary data to store ::: START
 req.body.doctorSpecialization=doctorID[0].specialization;
 req.body.doctorName=doctorID[0].fullName.firstName;
-req.body.isCancelled="NO";
+req.body.isCancelled= false;
 req.body.cancellationReason="NA";
 req.body.fee=doctorID[0].fee;
 req.body.tax=25;
@@ -77,15 +77,18 @@ const cancelAppointment = async (req, res) => {
   if(!appointmentInfo[0]?.appointmentId){
     return res.status(403).send('Invalid Appointment ID');
   }
+
+  if (appointmentInfo[0].isCancelled){
+    return res.status(403).send("Appointment is already cancelled.")
+  }
   
   let update = {
     "cancellationReason": req.body.cancellationReason,
-    "isCancelled": "Yes"
+    "isCancelled": true
   }
   let cancelAppointmentResult = await appointmentModel.findOneAndUpdate({"appointmentId":req.body.appointmentId}, update);
   res.status(200).send(cancelAppointmentResult)
 }
-
 
 module.exports = {
   createNewAppointment,

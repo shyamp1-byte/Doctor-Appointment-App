@@ -43,6 +43,14 @@ const docSchema = new Schema({
         }
       },
     },
+    phoneNumber: {
+      type: String,
+      required: true,
+      trim: true,
+      min: 9,
+      max: 11,
+      
+    },
     address: {
         doorNo: {
           type: String,
@@ -74,7 +82,7 @@ const docSchema = new Schema({
           required: true,
           trim: true,
         },
-      },
+      },   
       DID: {
         type: String,
         required: true,
