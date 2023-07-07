@@ -19,7 +19,7 @@ req.body.patientId=patientID;
 // Check doctor ID is valid or not ::: START
 const doctorInfo=await docModel.find({"DID":req.body.doctorId});
 
-if(doctorInfo[0].DID!==req.body.doctorId){
+if(doctorInfo[0]?.DID!==req.body.doctorId){
   return res.status(403).send('This doctor ID is not registred / Invalid');
 }
 req.body.doctorId=doctorInfo[0].specialization;
@@ -33,6 +33,7 @@ req.body.cancellationReason="NA";
 req.body.fee=doctorInfo[0].fee;
 req.body.tax=25;
 req.body.appointmentStatus="Booked";
+req.body.dateOfAppointment=new Date(req.body.dateOfAppointment);
 // Updating the request body with nessicary data to store ::: END
 
 
@@ -40,6 +41,11 @@ req.body.appointmentStatus="Booked";
  const appointments = await appointmentModel.find().sort({appointmentId: -1}).limit(1); // to get the lastest UID from MONGO
  const appointmentId = appointments[0]?.appointmentId || 'AID-20230001';
  req.body.appointmentId = generateNewAppointmentID(appointmentId);
+
+ const appointmentDateSlotAvailability = await appointmentModel.find().count({dateOfAppointment: req.body.dateOfAppointment});
+  if (appointmentDateSlotAvailability>0) {
+      return res.status(403).send('There are no Appointments available with this time');
+  }
  // Auto Incriment USER ID  END
 
 
@@ -50,11 +56,6 @@ req.body.appointmentStatus="Booked";
   const registeredAppointment = await appointmentModel.find().count({appointmentId: req.body.appointmentId});
   if (registeredAppointment>0) {
       return res.status(403).send('This Appointment ID is already registered');
-  }
-
-  const timeOfAppointment = await appointmentModel.find().count({appointmentTime: req.body.appointmentTime});
-  if (timeOfAppointment>0) {
-      return res.status(403).send('This time slot has been taken up. Please book with a different time');
   }
 
   try {

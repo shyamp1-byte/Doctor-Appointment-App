@@ -52,12 +52,7 @@ const appointmentSchema = new Schema({
     required: true,
     trim: true,
     min: "2023-07-01",
-    max: "2023-07-03",
-  },
-  timeOfAppointment: {
-    type: Date,
-    required: true,
-    trim: true,
+    max: "2023-09-30",
   },
   appointmentStatus: {
     type: String,

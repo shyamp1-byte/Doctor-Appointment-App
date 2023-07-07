@@ -1,5 +1,5 @@
 const userModel = require("../Model/userModel");
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const {generateNewUserID}=require('./../Utils/utils');
 
 

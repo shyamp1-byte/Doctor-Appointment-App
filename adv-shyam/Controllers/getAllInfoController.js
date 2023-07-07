@@ -6,12 +6,15 @@ const auth=require("../Middleware/auth");
 const getAllInfo = async (req, res) => {
   try {
     const allusersCount = await userModel.count({});
-    let allDoctorsCount = await docModel.count({});
-    let allAppointmentsCount = await appointmentModel.count({});
-    let finalResult = {
+    const allDoctorsCount = await docModel.count({});
+    const allAppointmentsCount = await appointmentModel.count({});
+    const cancelledAppointments = await appointmentModel.count({"isCancelled":true});
+    
+    const finalResult = {
       "allUsersCount":allusersCount,
       "allDoctorsCount":allDoctorsCount,
-      "allAppointmentsCount":allAppointmentsCount
+      "allAppointmentsCount":allAppointmentsCount,
+      "cancelledAppointments":cancelledAppointments
     }
 
     res.status(200).send(finalResult);
