@@ -40,6 +40,7 @@ req.body.dateOfAppointment=new Date(req.body.dateOfAppointment);
  // Auto Incriment Appointment ID  START
  const appointments = await appointmentModel.find().sort({appointmentId: -1}).limit(1); // to get the lastest UID from MONGO
  const appointmentId = appointments[0]?.appointmentId || 'AID-20230001';
+ 
  req.body.appointmentId = generateNewAppointmentID(appointmentId);
 
  const appointmentDateSlotAvailability = await appointmentModel.find().count({dateOfAppointment: req.body.dateOfAppointment});
