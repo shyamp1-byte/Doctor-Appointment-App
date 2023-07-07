@@ -59,6 +59,12 @@ req.body.dateOfAppointment=new Date(req.body.dateOfAppointment);
       return res.status(403).send('This Appointment ID is already registered');
   }
 
+  const numberOfAppointmentsBooked = await appointmentModel.find().count({"patientId": req.body.patientId});
+  console.log(numberOfAppointmentsBooked)
+  if (numberOfAppointmentsBooked>2) {
+      return res.status(403).send('Only allowed to book 3 appointments');
+  }
+
   try {
     await appointment.save();  // Heart ❤️ of this function - Saving into the Database
     res.status(201).send(appointment);
