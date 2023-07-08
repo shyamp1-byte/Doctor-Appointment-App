@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const port = 3000;
+const dotenvConfig = require('dotenv').config();
+const port = dotenvConfig.parsed.PORT;
 const mongoose = require("mongoose");
 require("./Database/mongoose");
 
