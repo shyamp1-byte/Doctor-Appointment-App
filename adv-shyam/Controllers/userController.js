@@ -4,6 +4,7 @@ const {generateNewUserID}=require('./../Utils/utils');
 
 
 
+
 const createNewUser = async (req, res) => {
 
 // CHECK EMAIL IS EXIST OR NOT (START)
@@ -67,8 +68,8 @@ const getUsersByEmail = async (req, res) => {
     const users = await userModel.find({ "email": email});
     console.log("users Data: ", users);
 
-    if (!users) {
-      return res.status(404).send("No users found with this color.");
+    if (!users[0]) {
+      return res.status(404).send("No users found with this email.");
     }
 
     res.send(users);
