@@ -1,6 +1,7 @@
 // StudentInformation is CLASS / ROOM
-// displayStudentInfo is METHOD / PERSON
+// displayStudentInfo is METHOD-FUNCTION / PERSON
 // METHOD should be inside of the class (AS per OOPS)
+
 
 class StudentInformation {
 
@@ -14,6 +15,9 @@ class StudentInformation {
 }
 
 class TutorInformation{
+    constructor(){
+        console.log("I will run automatically , without calling me. Im constructor Function")
+    }
     displayTutorInformation(){
         console.log("Im the Tutor inside the class");
     }
@@ -27,3 +31,8 @@ objStudentInformation.greeting("Shyam");  // Calling Function
 
 const objTutorInformation=new TutorInformation(); // Creating the object
 objTutorInformation.displayTutorInformation(); // Calling the function
+
+
+module.exports={
+    TutorInformation
+}
