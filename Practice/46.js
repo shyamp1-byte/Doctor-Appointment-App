@@ -1,1 +1,0 @@
-// Merge property of two objects 
